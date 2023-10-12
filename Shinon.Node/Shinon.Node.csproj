@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.57.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="7.0.0" />
     <PackageReference Include="NAPS2.Images.ImageSharp" Version="0.1.0-alpha05" />

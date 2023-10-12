@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option csharp_namespace = "Shinon";
+
+service ShinonService {
+    rpc RegisterClient (RegisterClientRequest) returns (RegisterClientReply);
+    rpc PushScannerEvent (PushEventRequest) returns (PushEventReply);
+    rpc PullServerEvent (PullServerEventRequest) returns (stream ServerEvent);
+}
+
+message RegisterClientRequest {
+
+}
+
+message RegisterClientReply {
+
+}
+
+message PushEventRequest {
+
+}
+
+message PushEventReply {
+
+}
+
+message PullServerEventRequest {
+
+}
+
+message ServerEvent {
+
+}
