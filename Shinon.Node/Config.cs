@@ -32,10 +32,6 @@ namespace Shinon.Node
         {
             if (!File.Exists(CommandLine.ConfigFile))
                 return;
-            var tomlOptions = new TomlModelOptions()
-            {
-                
-            };
             try
             {
                 ConfigFile =
@@ -67,6 +63,7 @@ namespace Shinon.Node
         public class ConfigFileOptions
         {
             public ScannerOptions Scanner { get; set; }
+            public RpcOptions Rpc { get; set; }
         }
 
         public class ScannerOptions
@@ -85,12 +82,9 @@ namespace Shinon.Node
             }
         }
 
-        public enum ScannerDriver
+        public class RpcOptions
         {
-            Wia,
-            Twain,
-            Sane,
-            Escl
+            public string Url { get; set; } = "http://localhost:9900";
         }
     }
 }

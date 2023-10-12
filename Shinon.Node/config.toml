@@ -1,2 +1,4 @@
 [scanner]
 
+[rpc]
+url = "http://localhost:9950"
