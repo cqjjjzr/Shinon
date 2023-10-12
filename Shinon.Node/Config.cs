@@ -12,8 +12,8 @@ namespace Shinon.Node
 {
     internal class Config
     {
-        public CommandLineOptions CommandLine { get; set; }
-        public ConfigFileOptions ConfigFile { get; set; }
+        public CommandLineOptions CommandLine { get; private set; } = new();
+        public ConfigFileOptions ConfigFile { get; private set; } = new();
 
         public Config()
         {
@@ -62,8 +62,8 @@ namespace Shinon.Node
 
         public class ConfigFileOptions
         {
-            public ScannerOptions Scanner { get; set; }
-            public RpcOptions Rpc { get; set; }
+            public ScannerOptions Scanner { get; set; } = new();
+            public RpcOptions Rpc { get; set; } = new();
         }
 
         public class ScannerOptions
