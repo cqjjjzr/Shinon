@@ -5,6 +5,10 @@ VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shinon.Server", "Shinon.Server\Shinon.Server.csproj", "{AC231472-56F2-4BC7-A5CC-0293C00CEF73}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shinon.Node", "Shinon.Node\Shinon.Node.csproj", "{31540A8C-D485-4E24-A163-38A929E3D31D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shinon.Shared", "Shinon.Shared\Shinon.Shared.csproj", "{18718C11-EC9A-4C6C-839E-60DDE931EEFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{AC231472-56F2-4BC7-A5CC-0293C00CEF73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC231472-56F2-4BC7-A5CC-0293C00CEF73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC231472-56F2-4BC7-A5CC-0293C00CEF73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31540A8C-D485-4E24-A163-38A929E3D31D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31540A8C-D485-4E24-A163-38A929E3D31D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31540A8C-D485-4E24-A163-38A929E3D31D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31540A8C-D485-4E24-A163-38A929E3D31D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18718C11-EC9A-4C6C-839E-60DDE931EEFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18718C11-EC9A-4C6C-839E-60DDE931EEFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18718C11-EC9A-4C6C-839E-60DDE931EEFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18718C11-EC9A-4C6C-839E-60DDE931EEFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
