@@ -1,4 +1,4 @@
-﻿using NAPS2.Images.ImageSharp;
+using NAPS2.Images.ImageSharp;
 using NAPS2.Scan;
 using Shinon.Node;
 

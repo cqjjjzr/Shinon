@@ -1,4 +1,4 @@
-﻿namespace Shinon.Shared
+namespace Shinon.Shared
 {
     public class Class1
     {
