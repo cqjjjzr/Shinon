@@ -16,6 +16,11 @@ try
     }
 
     await scanning.LoadDevices();
+    if (config.CommandLine.TestScan)
+    {
+        await scanning.TestScan();
+        return;
+    }
 }
 catch (Exception ex)
 {

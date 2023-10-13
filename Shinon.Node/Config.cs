@@ -58,6 +58,13 @@ namespace Shinon.Node
                 Required = false
             )]
             public bool ListScanners { get; set; } = false;
+
+            [Option(
+                't', "test",
+                Default = false, HelpText = "Scan a test picture with any scanner, and the exit.",
+                Required = false
+            )]
+            public bool TestScan { get; set; } = false;
         }
 
         public class ConfigFileOptions

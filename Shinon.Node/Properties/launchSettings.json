@@ -1,7 +1,8 @@
 {
   "profiles": {
     "Shinon.Node": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "-t"
     }
   }
 }

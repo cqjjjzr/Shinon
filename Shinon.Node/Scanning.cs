@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using NAPS2.Images;
 using NAPS2.Images.ImageSharp;
 using NAPS2.Scan;
 
@@ -26,6 +27,12 @@ namespace Shinon.Node
             _scanDriver = ParseScanDriverName(config.ConfigFile.Scanner.Driver);
 
             _scanController = new ScanController(_scanningContext);
+            _scanController.ScanError += OnScanError;
+            _scanController.ScanStart += OnScanStart;
+            _scanController.ScanEnd += OnScanEnd;
+            _scanController.PageStart += OnPageStart;
+            _scanController.PageEnd += OnPageEnd;
+            _scanController.PropagateErrors = true;
         }
 
         public async Task<IEnumerable<ScanDevice>> EnumerateDevices()
@@ -59,6 +66,66 @@ namespace Shinon.Node
                 "default" => Driver.Default,
                 _ => throw new NotSupportedException($"Invalid scan driver {scannerDriver}! Supported: wia, escl, sane, apple, and default.")
             };
+        }
+
+        public async Task TestScan()
+        {
+            if (_devices.Count == 0)
+            {
+                _logger.LogError("No device available, not executing test scan.");
+                return;
+            }
+
+            try
+            {
+                var device = _devices.First().Value;
+                _logger.LogInformation($"Scanning test page using device {device.Name}...");
+                var testOptions = new ScanOptions
+                {
+                    Device = device,
+                    UseNativeUI = false,
+                    PageSize = PageSize.A4,
+
+                };
+                var i = 1;
+                await foreach (var image in _scanController.Scan(testOptions))
+                {
+                    _logger.LogInformation("Test page - Page size: {pageSize}", image.Metadata.PageSize);
+                    _logger.LogInformation("Test page - Bit depth: {bitDepth}", image.Metadata.BitDepth);
+                    image.Save($"page{i++}.png", ImageFileFormat.Png);
+                }
+
+                _logger.LogInformation("Test scan finished.");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to scan test page.");
+            }
+        }
+
+        private void OnScanError(object? sender, ScanErrorEventArgs e)
+        {
+            _logger.LogError(e.Exception, "Failed to scan.");
+        }
+
+        private void OnScanStart(object? sender, EventArgs e)
+        {
+            _logger.LogDebug("Starting scan...");
+        }
+
+        private void OnScanEnd(object? sender, EventArgs e)
+        {
+            _logger.LogDebug("Scan ended.");
+        }
+
+        private void OnPageStart(object? sender, PageStartEventArgs e)
+        {
+            _logger.LogDebug("Starting page {number}...", e.PageNumber);
+        }
+
+        private void OnPageEnd(object? sender, PageEndEventArgs e)
+        {
+            _logger.LogDebug("Page {number} ended.", e.PageNumber);
         }
     }
 }

@@ -11,6 +11,7 @@ namespace Shinon.Node
     {
         public static ILoggerFactory Factory {get;} = LoggerFactory.Create(builder =>
         {
+            builder.SetMinimumLevel(LogLevel.Debug);
             builder.AddConsole();
         });
     }
